@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import px2rem from 'postcss-px2rem'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,12 +24,5 @@ export default defineConfig({
         additionalData: '@import "./src/styles/variable.scss";',
       },
     },
-    // postcss: {
-    //   plugins: [
-    //     px2rem({
-    //       remmUnit: 192,
-    //     }),
-    //   ],
-    // },
   },
 })
