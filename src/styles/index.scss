@@ -1,0 +1,26 @@
+// 引入清除默认样式
+@import './reset.scss';
+
+#app {
+  // width: 1920px;
+  // overflow: hidden;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.submenu-popper {
+  height: calc(100% - $base-tabbar-height);
+  width: 128px;
+  overflow: hidden;
+  .submenu-popper {
+    .el-menu {
+      background-color: #ffffff;
+      .el-menu-item {
+        color: #000000;
+      }
+    }
+  }
+}
