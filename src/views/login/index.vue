@@ -7,13 +7,26 @@
           <h1>Hello</h1>
           <h2>欢迎来到虚拟世界</h2>
           <el-form-item prop="username">
-            <el-input :prefix-icon="User" v-model="loginForm.username"></el-input>
+            <el-input
+              :prefix-icon="User"
+              v-model="loginForm.username"
+            ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password"></el-input>
+            <el-input
+              type="password"
+              :prefix-icon="Lock"
+              show-password
+              v-model="loginForm.password"
+            ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button :loading="loading" class="login-btn" type="primary" @click="login">
+            <el-button
+              :loading="loading"
+              class="login-btn"
+              type="primary"
+              @click="login"
+            >
               登录
             </el-button>
           </el-form-item>
@@ -46,17 +59,16 @@ const login = async () => {
     ElNotification({
       type: 'success',
       title: `${getTime()}好`,
-      message: '欢迎回来！'
+      message: '欢迎回来！',
     })
     loading.value = false
   } catch (error) {
     ElNotification({
       type: 'error',
-      message: (error as Error).message
+      message: (error as Error).message,
     })
     loading.value = false
   }
-
 }
 </script>
 
