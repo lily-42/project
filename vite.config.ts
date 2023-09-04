@@ -10,7 +10,7 @@ export default defineConfig(({ command }) => {
     plugins: [
       vue(),
       viteMockServe({
-        localEnabled: command === 'serve',
+        enable: command === 'serve',
       }),
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
