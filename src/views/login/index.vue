@@ -5,7 +5,7 @@
       <el-col :span="12" :xs="24">
         <el-form class="login-form" :model="loginForm" ref="loginData">
           <h1>Hello</h1>
-          <h2>欢迎来到虚拟世界</h2>
+          <h2>欢迎来到虚拟世界,嘻嘻</h2>
           <el-form-item prop="username">
             <el-input
               :prefix-icon="User"
