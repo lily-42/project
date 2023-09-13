@@ -5,7 +5,11 @@
       <Logo />
       <!-- 展示菜单 -->
       <el-scrollbar>
-        <el-menu background-color="#001529" text-color="#ffffff" :default-active="$route.path">
+        <el-menu
+          background-color="#001529"
+          text-color="#ffffff"
+          :default-active="$route.path"
+        >
           <Menu :menuList="useStore.menuRoutes" />
         </el-menu>
       </el-scrollbar>
@@ -19,15 +23,14 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-import Logo from "./logo/index.vue";
-import Menu from "./menu/index.vue";
-import Main from "./main/index.vue";
-import useUserStore from "@/store/modules/user";
-let useStore = useUserStore();
+import { useRoute } from 'vue-router'
+import Logo from './logo/index.vue'
+import Menu from './menu/index.vue'
+import Main from './main/index.vue'
+import useUserStore from '@/store/modules/user'
+let useStore = useUserStore()
 // 获取路由器对象
-let $route = useRoute();
-
+let $route = useRoute()
 </script>
 
 <style scoped lang="scss">

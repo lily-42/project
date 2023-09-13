@@ -15,7 +15,7 @@ let useUserStore = defineStore('User', {
   state: (): Userstate => {
     return {
       token: GET_TOKEN(),
-      menuRoutes: constantRoute
+      menuRoutes: constantRoute,
     }
   },
   //异步/逻辑的地方

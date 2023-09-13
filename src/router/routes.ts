@@ -6,7 +6,7 @@ export const constantRoute = [
     name: 'Login',
     meta: {
       title: '登录',
-      hidden: true
+      hidden: true,
     },
   },
   {
@@ -24,7 +24,7 @@ export const constantRoute = [
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '首页',
-          icon: 'HomeFilled'
+          icon: 'HomeFilled',
         },
       },
     ],
@@ -35,8 +35,8 @@ export const constantRoute = [
     name: 'Screen',
     meta: {
       title: '数据大屏',
-      icon: 'Platform'
-    }
+      icon: 'Platform',
+    },
   },
   {
     path: '/acl',
@@ -44,17 +44,17 @@ export const constantRoute = [
     name: 'Acl',
     meta: {
       title: '权限管理',
-      icon: 'Lock'
+      icon: 'Lock',
     },
-    children:[
+    children: [
       {
         path: '/acl/user',
         component: () => import('@/views/acl/user/index.vue'),
         name: 'User',
         meta: {
           title: '用户管理',
-          icon: 'User'
-        }
+          icon: 'User',
+        },
       },
       {
         path: '/acl/role',
@@ -62,18 +62,19 @@ export const constantRoute = [
         name: 'Role',
         meta: {
           title: '角色管理',
-          icon: 'UserFilled'
-        }
-      },{
+          icon: 'UserFilled',
+        },
+      },
+      {
         path: '/acl/permission',
         component: () => import('@/views/acl/permission/index.vue'),
         name: 'Permission',
         meta: {
           title: '菜单管理',
-          icon: 'Monitor'
-        }
-      }
-    ]
+          icon: 'Monitor',
+        },
+      },
+    ],
   },
   {
     path: '/product',
@@ -82,7 +83,7 @@ export const constantRoute = [
     meta: {
       title: '商品管理',
       hidden: false,
-      icon: 'Goods'
+      icon: 'Goods',
     },
     children: [
       {
@@ -91,7 +92,7 @@ export const constantRoute = [
         name: 'Trademark',
         meta: {
           title: '品牌管理',
-          icon: 'ShoppingCartFull'
+          icon: 'ShoppingCartFull',
         },
       },
       {
@@ -100,7 +101,7 @@ export const constantRoute = [
         name: 'Attr',
         meta: {
           title: '属性管理',
-          icon: 'ChromeFilled'
+          icon: 'ChromeFilled',
         },
       },
       {
@@ -109,7 +110,7 @@ export const constantRoute = [
         name: 'Spu',
         meta: {
           title: 'spu管理',
-          icon: 'Calendar'
+          icon: 'Calendar',
         },
       },
       {
@@ -118,10 +119,10 @@ export const constantRoute = [
         name: 'Sku',
         meta: {
           title: 'sku管理',
-          icon: 'Orange'
+          icon: 'Orange',
         },
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/404',
@@ -129,7 +130,7 @@ export const constantRoute = [
     name: '404',
     meta: {
       title: 404,
-      hidden: true
+      hidden: true,
     },
   },
   {
@@ -138,7 +139,7 @@ export const constantRoute = [
     name: 'Any',
     meta: {
       title: 'Any',
-      hidden: true
+      hidden: true,
     },
   },
 ]
