@@ -3,7 +3,12 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login-form" :model="loginForm" ref="loginData">
+        <el-form
+          class="login-form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>Hello</h1>
           <h2>欢迎来到虚拟世界,嘻嘻</h2>
           <el-form-item prop="username">
@@ -12,7 +17,7 @@
               v-model="loginForm.username"
             ></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input
               type="password"
               :prefix-icon="Lock"
@@ -45,6 +50,7 @@ import { getTime } from '@/utils/time'
 let useStore = useUserStore()
 let $router = useRouter()
 let loading = ref(false)
+let loginForms = ref()
 
 let loginForm = reactive({
   username: '',
@@ -52,6 +58,9 @@ let loginForm = reactive({
 })
 
 const login = async () => {
+  // 表单全部校验通过后发送请求
+  await loginForms.value.validate()
+
   loading.value = true
   try {
     await useStore.userLogin(loginForm)
@@ -69,6 +78,34 @@ const login = async () => {
     })
     loading.value = false
   }
+}
+
+const validatorUserName = (rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('账号长度至少五位'))
+  }
+}
+const validatorPassword = (rule: any, value: any, callback: any) => {
+  console.log('rule', rule)
+  console.log('value', value)
+  if (value.length >= 6) {
+    callback()
+  } else {
+    callback(new Error('密码长度至少六位'))
+  }
+}
+
+// 定义表单校验需要配置对象
+const rules = {
+  username: [{ trigger: 'change', validator: validatorUserName }],
+  password: [
+    {
+      trigger: 'change',
+      validator: validatorPassword,
+    },
+  ],
 }
 </script>
 

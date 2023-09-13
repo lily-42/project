@@ -1,26 +1,32 @@
 // 引入清除默认样式
 @import './reset.scss';
 
-#app {
-  // width: 1920px;
-  // overflow: hidden;
-}
 
-// 滚动条
+// 整个滚动条
 ::-webkit-scrollbar {
-  width: 0;
+  width: 10px;
+}
+// 滚动条的滚动区域（轨道）
+::-webkit-scrollbar-track {
+  background-color: $base-menu-background;
+}
+// 滚动条的可拖拽部分（滑块）
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: yellow;
+  border-radius: 10px;
 }
 
-.submenu-popper {
-  height: calc(100% - $base-tabbar-height);
-  width: 128px;
-  overflow: hidden;
-  .submenu-popper {
-    .el-menu {
-      background-color: #ffffff;
-      .el-menu-item {
-        color: #000000;
-      }
-    }
-  }
-}
+// .submenu-popper {
+//   height: calc(100% - $base-tabbar-height);
+//   width: 128px;
+//   overflow: hidden;
+//   .submenu-popper {
+//     .el-menu {
+//       background-color: #ffffff;
+//       .el-menu-item {
+//         color: #000000;
+//       }
+//     }
+//   }
+// }

@@ -1,57 +1,59 @@
 <template>
-  <template v-for="item in menuList" :key="item.path">
+  <template v-for="(item, index) in menuList" :key="item.path">
     <!-- 没有子路由 -->
     <template v-if="!item.children">
-      <el-menu-item
-        v-if="!item.meta.hidden"
-        :index="item.path"
-        @click="goRoute"
-      >
-        {{ item.meta.title }}
+      <el-menu-item v-if="!item.meta.hidden" :index="item.path" @click="goRoute">
+        <el-icon>
+          <!-- 动态组件语法，通过：is属性将动态组件名称设置为 item.meta.icon, -->
+          <component :is="item.meta.icon"></component>
+        </el-icon>
+        <template #title>
+          {{ item.meta.title }}
+        </template>
       </el-menu-item>
     </template>
-    <!-- 有一个子路由 -->
+
+    <!-- 只有一个子路由 -->
     <template v-if="item.children && item.children.length === 1">
       <el-menu-item
         v-if="!item.children[0].meta.hidden"
         :index="item.children[0].path"
         @click="goRoute"
       >
-        {{ item.children[0].meta.title }}
+        <el-icon>
+          <component :is="item.children[0].meta.icon"></component>
+        </el-icon>
+        <template #title>
+          {{ item.children[0].meta.title }}
+        </template>
       </el-menu-item>
     </template>
+
     <!-- 有多个子路由 -->
-    <el-sub-menu
-      v-if="item.children && item.children.length > 1"
-      :index="item.path"
-      popper-class="submenu-popper"
-      :popper-offset="6"
-      @click="goRoute"
-    >
+    <el-sub-menu v-if="item.children && item.children.length > 1" :index="item.path">
       <template #title>
-        <div>{{ item.meta.title }}</div>
+        <el-icon>
+          <component :is="item.meta.icon"></component>
+        </el-icon>
+        <span>{{ item.meta.title }}</span>
       </template>
-      <Menu :menuList="item.children"></Menu>
+      <Menu :menuList="item.children" />
     </el-sub-menu>
   </template>
 </template>
-<script setup lang="ts" name="Menu">
-import Menu from '@/layout/menu/index.vue'
-defineProps(['menuList'])
-
-import { useRouter } from 'vue-router'
-let $router = useRouter()
+<script setup lang="ts">
+// 获取父组件传过来的路由数组
+defineProps(["menuList"]);
+import { useRouter } from "vue-router";
+let $router = useRouter();
 const goRoute = (vc: any) => {
-  $router.push(vc.index)
-}
+  $router.push(vc.index);
+};
+</script>
+<script lang="ts">
+export default {
+  name: "Menu",
+};
 </script>
 
-<style scoped lang="scss">
-.is-opened::before {
-  content: '\A';
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid blue;
-  position: absolute;
-}
-</style>
+<style scoped lang="scss"></style>

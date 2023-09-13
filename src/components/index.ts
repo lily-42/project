@@ -8,6 +8,7 @@ export default {
     Object.keys(allGlobalComponent).forEach((key) => {
       app.component(key, allGlobalComponent[key])
     })
+    // 将elementplus icon注册为全局组件
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       app.component(key, component)
     }

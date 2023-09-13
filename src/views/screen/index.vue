@@ -1,5 +1,5 @@
 <template>
-  <div>系统管理</div>
+  <div>大屏页面</div>
 </template>
 <script setup lang="ts"></script>
 
