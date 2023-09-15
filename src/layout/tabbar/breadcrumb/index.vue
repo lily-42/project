@@ -13,15 +13,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import useLayoutSettingStore from '@/store/modules/setting'
-let LayoutSettingStore = useLayoutSettingStore();
+let LayoutSettingStore = useLayoutSettingStore()
 
 const changeIcon = () => {
-    LayoutSettingStore.fold = !LayoutSettingStore.fold
+  LayoutSettingStore.fold = !LayoutSettingStore.fold
 }
 </script>
 <script lang="ts">
 export default {
-    name: "Breadcrumb"
+  name: 'Breadcrumb',
 }
 </script>
 

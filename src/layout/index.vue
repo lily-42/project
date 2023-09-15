@@ -1,7 +1,10 @@
 <template>
   <div class="layout-container">
     <!-- 左侧菜单 -->
-    <div class="layout-sider" :class="{fold: LayoutSettingStore.fold ? true : false}">
+    <div
+      class="layout-sider"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <Logo />
       <!-- 展示菜单 -->
       <el-scrollbar>
@@ -16,11 +19,17 @@
       </el-scrollbar>
     </div>
     <!-- 顶部导航 -->
-    <div class="layout-tabbar" :class="{fold: LayoutSettingStore.fold ? true : false}">
+    <div
+      class="layout-tabbar"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <Tabbar />
     </div>
     <!-- 内容展示区域 -->
-    <div class="layout-main" :class="{fold: LayoutSettingStore.fold ? true : false}">
+    <div
+      class="layout-main"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <Main />
     </div>
   </div>
@@ -34,7 +43,7 @@ import Tabbar from './tabbar/index.vue'
 import useUserStore from '@/store/modules/user'
 import useLayoutSettingStore from '@/store/modules/setting'
 let useStore = useUserStore()
-let LayoutSettingStore = useLayoutSettingStore();
+let LayoutSettingStore = useLayoutSettingStore()
 // 获取路由器对象
 let $route = useRoute()
 </script>
